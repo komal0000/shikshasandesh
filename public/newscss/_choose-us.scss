@@ -1,23 +1,28 @@
 .section-padding-1 .container-fluid {
     padding-right: 100px;
     padding-left: 100px;
+
     // Responsive
     @media #{$desktop-device} {
         padding-right: 80px;
         padding-left: 80px;
     }
+
     @media #{$laptop-device} {
         padding-right: 50px;
         padding-left: 50px;
     }
+
     @media #{$tablet-device} {
         padding-right: 40px;
         padding-left: 40px;
     }
+
     @media #{$large-mobile} {
         padding-right: 15px;
         padding-left: 15px;
     }
+
     @media #{$small-mobile} {
         padding-right: 30px;
         padding-left: 30px;
@@ -50,78 +55,96 @@
     display: flex;
     padding: 50px 48px 46px;
     transition: all .3s ease 0s;
+
     // Responsive
     @media #{$extrabig-device} {
         padding: 50px 15px 46px;
     }
+
     @media #{$desktop-device} {
         padding: 40px 15px 36px;
     }
+
     @media #{$laptop-device} {
         padding: 30px 10px 26px;
     }
+
     @media #{$tablet-device} {
         padding: 30px 20px 26px;
     }
+
     @media #{$large-mobile} {
         padding: 30px 10px 26px;
     }
+
     .choose-img {
         flex: 0 0 60px;
         margin-right: 20px;
         transition: all .3s ease 0s;
+
         @media #{$extrabig-device} {
             flex: 0 0 45px;
             margin-right: 10px;
         }
+
         @media #{$desktop-device} {
             flex: 0 0 35px;
             margin-right: 10px;
         }
+
         @media #{$laptop-device} {
             flex: 0 0 35px;
             margin-right: 10px;
         }
+
         @media #{$large-mobile} {
             flex: 0 0 35px;
             margin-right: 10px;
         }
+
         img {
             width: 100%;
             transition: all .3s ease 0s;
         }
     }
+
     .choose-content {
         h3 {
             font-weight: bold;
             font-size: 22px;
             color: #fff;
             margin: 0 0 12px;
+
             @media #{$extrabig-device} {
                 font-size: 20px;
                 margin: 0 0 10px;
             }
+
             @media #{$desktop-device} {
                 font-size: 18px;
                 margin: 0 0 5px;
             }
+
             @media #{$laptop-device} {
                 font-size: 18px;
                 margin: 0 0 5px;
                 line-height: 25px;
             }
+
             @media #{$large-mobile} {
                 font-size: 18px;
                 margin: 0 0 5px;
                 line-height: 25px;
             }
         }
+
         p {
             line-height: 26px;
             font-size: 16px;
             color: #fff;
         }
     }
+
     &:hover .choose-img img {
         animation: 500ms ease-in-out 0s normal none 1 running tada;
     }
@@ -130,36 +153,44 @@
 .section-title {
     position: relative;
     margin-left: 32px;
+
     @media #{$large-mobile} {
         margin-left: 0px;
     }
+
     &:before {
         content: url(../../assets/img/icon-img/section-shape.png);
         position: absolute;
         left: -32px;
         top: 2px;
         bottom: auto;
+
         @media #{$large-mobile} {
             left: -5px;
         }
     }
+
     h2 {
         font-size: 48px;
         font-weight: bold;
         margin: 0 0 20px;
         line-height: 38px;
+
         @media #{$large-mobile} {
             font-size: 27px;
             margin: 0 0 10px;
         }
+
         span {
             color: #00a651;
             font-weight: 400;
         }
     }
+
     p {
         font-size: 16px;
         line-height: 26px;
+
         @media #{$large-mobile} {
             font-size: 15px;
         }
@@ -170,15 +201,18 @@
     .section-title.mb-75 {
         margin-bottom: 35px;
     }
+
     .section-title.mb-75.mrg-bottom-small {
         margin-bottom: 95px;
     }
 }
+
 @media #{$tablet-device} {
     .section-title.mb-75 {
         margin-bottom: 50px;
     }
 }
+
 @media #{$tablet-device} {
     .section-title-3.mb-100 {
         margin-bottom: 80px;
@@ -204,32 +238,39 @@
     position: relative;
     margin-left: 32px;
     z-index: 9;
+
     @media #{$large-mobile} {
         margin-left: 0px;
     }
+
     &:before {
         content: url(../../assets/img/icon-img/section-shape-2.png);
         position: absolute;
         left: -32px;
         top: 2px;
         bottom: auto;
+
         @media #{$large-mobile} {
             left: -5px;
         }
     }
+
     h2 {
         font-size: 48px;
         font-weight: bold;
         margin: 0 0 20px;
         line-height: 38px;
         color: #fff;
+
         @media #{$large-mobile} {
             font-size: 35px;
         }
+
         span {
             font-weight: 400;
         }
     }
+
     p {
         font-size: 16px;
         line-height: 26px;
@@ -239,6 +280,7 @@
 
 .section-title-3 {
     position: relative;
+
     &:before {
         position: absolute;
         left: 0px;
@@ -246,23 +288,28 @@
         margin: 0 auto;
         bottom: -29px;
     }
+
     h2 {
         font-size: 48px;
         font-weight: bold;
         margin: 0 0 20px;
         line-height: 38px;
+
         @media #{$large-mobile} {
             font-size: 33px;
             margin: 0 0 10px;
         }
+
         span {
             color: #00a651;
             font-weight: 400;
         }
     }
+
     p {
         font-size: 16px;
         line-height: 26px;
+
         @media #{$large-mobile} {
             font-size: 15px;
         }
@@ -284,6 +331,7 @@
 }
 
 .section-title-3.white-text {
+
     h2,
     span,
     p {
@@ -309,14 +357,17 @@
         font-weight: bold;
         margin: 37px 0 16px;
         line-height: 1;
+
         @media #{$laptop-device} {
             font-size: 16px;
         }
     }
+
     p {
         line-height: 23px;
         margin: 0;
     }
+
     &:hover img {
         animation: 500ms ease-in-out 0s normal none 1 running tada;
     }
@@ -324,12 +375,15 @@
 
 .choose-padding {
     padding-right: 68px;
+
     @media #{$laptop-device} {
         padding-right: 0px;
     }
+
     @media #{$tablet-device} {
         padding-right: 0px;
     }
+
     @media #{$large-mobile} {
         padding-right: 0px;
     }
@@ -339,23 +393,29 @@
     padding: 35px 30px 50px;
     border: 1px solid #f6f6f6;
     box-shadow: 0px 6px 12px 0.8px rgba(222, 222, 222, 0.22);
+
     @media #{$large-mobile} {
         padding: 35px 20px 50px;
     }
+
     h4 {
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 0 0 19px;
+
         @media #{$large-mobile} {
             font-size: 16px;
         }
     }
+
     p {
         font-size: 15px;
         line-height: 26px;
         margin: 0 0 42px;
     }
+
     form {
+
         input,
         textarea,
         button {
@@ -367,13 +427,16 @@
             color: #333;
             margin: 0 0 11px;
         }
+
         textarea {
             height: 132px;
             padding: 20px 25px;
         }
+
         button {
             width: 100%;
             text-align: left;
+
             &:hover {
                 background-color: $theme-color;
                 border: 1px solid $theme-color;
@@ -400,30 +463,37 @@
 
 .single-about-chose-us {
     display: flex;
+
     .about-choose-img {
         flex: 0 0 60px;
         margin-right: 20px;
+
         @media #{$large-mobile} {
             margin-right: 10px;
         }
     }
+
     .about-choose-content {
         h3 {
             font-size: 22px;
             font-weight: bold;
             margin: 0 0 5px;
+
             @media #{$laptop-device} {
                 font-size: 18px;
             }
+
             @media #{$large-mobile} {
                 font-size: 20px;
             }
         }
+
         p {
             line-height: 25px;
             margin: 0;
         }
     }
+
     &:hover .about-choose-img img {
         animation: 500ms ease-in-out 0s normal none 1 running tada;
     }
@@ -450,14 +520,17 @@
 .about-negative-mrg {
     margin-left: -30px;
     margin-right: 40px;
+
     @media #{$laptop-device} {
         margin-left: 0px;
         margin-right: 0px;
     }
+
     @media #{$tablet-device} {
         margin-left: 0px;
         margin-right: 0px;
     }
+
     @media #{$large-mobile} {
         margin-left: 0px;
         margin-right: 0px;
@@ -481,16 +554,13 @@
         padding-top: 0;
     }
 }
+
 .section-title-2.mb-75 {
     @media #{$large-mobile} {
         margin-bottom: 50px;
     }
+
     @media #{$tablet-device} {
         margin-bottom: 50px;
     }
 }
-
-
-
-
-

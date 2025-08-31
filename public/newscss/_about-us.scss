@@ -2,27 +2,34 @@
 
 .about-content {
     margin-top: 28px;
+
     @media #{$tablet-device} {
         margin-top: 0px;
     }
+
     @media #{$large-mobile} {
         margin-top: 0px;
     }
-    > p {
+
+    >p {
         line-height: 26px;
         width: 92%;
         margin: 0 0 0 32px;
+
         @media #{$large-mobile} {
             margin: 0 0 0 0px;
         }
     }
+
     .about-btn a.default-btn {
         box-shadow: 0px 6px 12px .8px rgba(#0e0e0e, 0.26);
         margin: 0 0 0 32px;
+
         @media #{$large-mobile} {
             margin: 0 0 0 0px;
         }
     }
+
     @media #{$large-mobile} {
         .about-btn.mt-45 {
             margin-top: 15px;
@@ -34,13 +41,16 @@
     @media #{$large-mobile} {
         margin-top: 30px;
     }
+
     &:before {
         background-color: #000;
         opacity: .5;
     }
+
     img {
         width: 100%;
     }
+
     .video-btn {
         position: absolute;
         top: 50%;
@@ -65,12 +75,15 @@
         line-height: 26px;
         margin: 0 0 30px;
     }
-    > img {
+
+    >img {
         width: 100%;
+
         @media #{$tablet-device} {
             width: auto;
         }
     }
+
     .about-btn a.default-btn {
         box-shadow: 0px 6px 12px .8px rgba(#0e0e0e, 0.26);
     }
@@ -120,6 +133,7 @@
 .breadcrumb-top {
     position: relative;
     z-index: 9;
+
     h2 {
         font-weight: bold;
         font-size: 48px;
@@ -127,11 +141,13 @@
         color: #fff;
         z-index: 9;
         position: relative;
+
         @media #{$large-mobile} {
             font-size: 35px;
             margin: 0 0 10px;
         }
     }
+
     p {
         font-size: 16px;
         color: #fff;
@@ -140,9 +156,11 @@
         position: relative;
         margin: 0;
         width: 40%;
+
         @media #{$tablet-device} {
             width: 73%;
         }
+
         @media #{$large-mobile} {
             width: 100%;
         }
@@ -152,24 +170,29 @@
 .breadcrumb-bottom {
     background-color: $theme-color;
     padding: 14px 0 12px;
+
     ul {
         li {
             display: flex;
             justify-content: space-between;
+
             a {
                 font-weight: 500;
                 font-size: 18px;
                 color: #f6f6f6;
                 line-height: 1;
+
                 &:hover {
                     color: #fff;
                 }
             }
+
             span {
                 font-weight: 500;
                 font-size: 18px;
                 color: #f6f6f6;
                 line-height: 1;
+
                 i {
                     color: #f6f6f6;
                     font-size: 14px;

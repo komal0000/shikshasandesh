@@ -1,5 +1,5 @@
 @php
-    $about_img = getSetting('about_img',true);
+    $about_img = getSetting('about_img', true);
 @endphp
 <div class="about-us pt-40 pb-40">
     <div class="container">
@@ -14,7 +14,7 @@
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="about-img default-overlay">
-                    <img src="{{ asset($about_img) }}" alt="About Us" loading="lazy">
+                    <img src="{{ asset($about_img) }}" alt="" loading="lazy">
                 </div>
 
             </div>

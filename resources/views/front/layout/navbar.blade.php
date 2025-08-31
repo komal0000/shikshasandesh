@@ -32,6 +32,12 @@
         font-size: 12px;
     }
 
+    /* Ensure header-area doesn't interfere with sticky behavior */
+    .header-area {
+        position: relative;
+        overflow: visible;
+    }
+
     /* Sticky Header Mid (logo + hamburger) */
     .header-mid {
         position: relative;
@@ -41,32 +47,42 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 0;
+        padding: 10px;
         border-bottom: 1px solid #eee;
     }
 
-    /* Logo */
-    .logo img {
-        max-height: 60px;
-        width: auto;
+    /* Class for fixed positioning when scrolled */
+    .header-mid.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1200;
+        background: #fff;
     }
 
-    /* Hamburger */
+    /* Ensure hamburger button is clickable */
     .mobile-menu-toggle {
         background: none;
         border: none;
         font-size: 28px;
         cursor: pointer;
         color: #333;
+        z-index: 1300;
+        /* Higher than header-mid to ensure clickability */
+        position: relative;
+        pointer-events: auto;
+        /* Ensure clicks are registered */
     }
-
-
 
     /* Mobile Menu */
     .mobile-menu-area {
         display: none;
         width: 100%;
         background: #f8f8f8;
+        position: relative;
+        z-index: 1100;
+        /* Below header-mid but above other content */
     }
 
     .mobile-menu-area nav ul {
@@ -101,27 +117,45 @@
         .header-bottom {
             display: none;
         }
+
+        .header-mid.sticky~.mobile-menu-area {
+            margin-top: 71px;
+            /* Offset for header-mid height (60px logo + 10px padding + 1px border) */
+        }
+
+        .mobile-menu-area.active {
+            position: fixed;
+            /* Fix menu below header-mid when open */
+            top: 71px;
+            /* Align below fixed header-mid */
+            left: 0;
+            right: 0;
+        }
     }
 
     @media (max-width: 768px) {
         .logo img {
             max-height: 50px;
         }
-    }
 
-    @media (max-width: 992px) {
-        .header-mid {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #fff;
+        .header-mid.sticky~.mobile-menu-area {
+            margin-top: 61px;
+            /* Adjusted for smaller logo height (50px + 10px padding + 1px border) */
+        }
+
+        .mobile-menu-area.active {
+            position: fixed;
+            top: 61px;
+            /* Adjusted for smaller header-mid height */
+            left: 0;
+            right: 0;
         }
     }
 </style>
 
 <header class="header-area">
     <!-- Header Top -->
-    <div class="header-top bg-img">
+    <div class="header-top bg-img" style="padding:5px;">
         <div class="container">
             <div class="row" style="justify-content: space-between;align-items: center">
                 <div class="col-lg-6 col-md-7 col-12 col-sm-8">
@@ -155,10 +189,12 @@
                                     href="{{ str_starts_with($twitter, 'http') ? $twitter : 'https://' . $twitter }}"
                                     target="_blank"><i class="fa-brands fa-x-twitter" style="color: #1DA1F2;"></i></a>
                             </li>
+
                             <li><a class="instagram"
                                     href="{{ str_starts_with($instagram, 'http') ? $instagram : 'https://' . $instagram }}"
                                     target="_blank"><i class="fa-brands fa-instagram" style="color: #C13584;"></i></a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -167,7 +203,7 @@
     </div>
 
     <!-- Header Mid (Logo + Hamburger) -->
-    <div class="header-mid d-flex justify-content-between align-items-center" style="background:#fff; padding:10px 0;">
+    <div class="header-mid d-flex justify-content-between align-items-center" style="background:#fff; padding:10px;">
         <a href="{{ route('index') }}">
             <div class="logo py-2">
                 <img alt="Logo" src="{{ asset($logo) }}" class="img-fluid" style="max-height:60px;">
@@ -176,7 +212,7 @@
 
         <!-- Hamburger Button -->
         <button class="d-lg-none mobile-menu-toggle" id="mobile-menu-toggle" type="button"
-            style="background:none; border:none; font-size:28px; cursor:pointer;">
+            style="background:none; border:none; font-size:20px; cursor:pointer; padding:10px;">
             <i class="fa fa-bars"></i>
         </button>
     </div>
@@ -252,9 +288,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             const toggleBtn = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu-area');
+            const headerMid = document.querySelector('.header-mid');
+            const headerTop = document.querySelector('.header-top');
 
+            // Mobile menu toggle
             toggleBtn.addEventListener('click', function() {
                 mobileMenu.classList.toggle('active');
             });
+            toggleBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+            toggleBtn.setAttribute('aria-label', mobileMenu.classList.contains('active') ? 'Close menu' :
+                'Open menu');
+
+            // Sticky header-mid on scroll for small devices
+            if (window.innerWidth <= 992) {
+                window.addEventListener('scroll', function() {
+                    const headerTopHeight = headerTop.offsetHeight;
+                    if (window.scrollY > headerTopHeight) {
+                        headerMid.classList.add('sticky');
+                    } else {
+                        headerMid.classList.remove('sticky');
+                    }
+                });
+            }
         });
     </script>
